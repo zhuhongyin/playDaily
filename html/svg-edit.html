@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        HTML, BODY {
+            height: 100%;
+        }
+
+        BODY {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: steelblue linear-gradient(
+                    to right bottom,
+                    skyblue, steelblue,
+                    teal, lightseagreen);
+            font: 10vw/1 Arial Black, sans-serif;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .text {
+            word-wrap: break-word;
+            filter: url(#filter);
+            outline: none;
+            &::selection {
+                 background: rgba(0,0,0,.15);
+             }
+        }
+
+        svg {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+    </style>
+    <!--恭喜camel入职3周年-->
+</head>
+<body>
+<svg>
+    <filter id="filter">
+        <feTurbulence id="feTurbulence"
+                      type="turbulence"
+                      baseFrequency="0.005"
+                      numOctaves="2"
+                      result="turbulence"/>
+        <feFlood
+                flood-color="white"
+                result="flood"
+        />
+        <feComposite
+                in="flood"
+                in2="turbulence"
+                operator="in"
+                result="composite2"/>
+        <feComposite
+                in="composite2"
+                in2="SourceAlpha"
+                operator="in"
+                result="composite3"/>
+    </filter>
+</svg>
+<div class="text" contenteditable>留下笔迹才美丽</div>
+</body>
+</html>
