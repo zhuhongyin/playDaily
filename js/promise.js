@@ -63,3 +63,20 @@ function testPromise() {
     log = document.getElementById('log');
     log.innerHTML = "Live example not available as your browser doesn't support the <code>Promise<code> interface.";
 }
+
+async function a(label) { await b(label); await c(label); await d(label); } 
+async function b(label) { console.log(`b.${label}`) } 
+async function c(label) { console.log(`c.${label}`) } 
+async function d(label) { console.log(`d.${label}`) } 
+a("a1"); a("a2");
+
+
+setTimeout(() => { console.log('settimeout') }, 0);
+
+const asyncFunction = function() {
+  return new Promise(function(resolve, reject) {
+    resolve('promise');
+  });
+};
+
+asyncFunction().then(value => console.log(value));
